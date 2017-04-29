@@ -40,8 +40,7 @@ class ViewController: UIViewController {
         //  Create FFT setup
         // __Log2nは log2(64) = 6 より、6 を指定
         
-        
-        let fftLevel = 64 //fftのポイント数を指定
+        let fftLevel = 512 //fftのポイント数を指定
         let log2fftLevel = vDSP_Length(log2(Double(fftLevel))) //fftのポイント数をlog2に変換
         
         let setup = vDSP_create_fftsetup(log2fftLevel, FFTRadix(FFT_RADIX2))
@@ -74,24 +73,27 @@ class ViewController: UIViewController {
         
         var rect = view.bounds
         //表示位置
-        rect.origin.y += 100
-        rect.size.height -= 100
-        let barChartView = BarChartView(frame: rect) //棒グラフの宣言
+        rect.origin.y += 50
+        rect.size.height -= 200
+        let lineChartView = LineChartView(frame: rect) //棒グラフの宣言
         
+        
+
         //xとyの値の格納
         var entry = [BarChartDataEntry]()
         for index in 0..<fftLevel/2 {
-            entry.append(BarChartDataEntry(x: Double(xAxis[index]), y: Double(mag[index])))
+            entry.append(BarChartDataEntry(x: Double(xAxis[index]), y: 10 * log10(mag[index]) ))
         }
         
         //datasetとして書き出す
-        let set = [
-            BarChartDataSet(values: entry, label: "Data")
-        ]
+        let set: LineChartDataSet =  LineChartDataSet(values: entry, label: "Data")
+        set.drawCirclesEnabled = false
         
+        var dataSets : [LineChartDataSet] = [LineChartDataSet]()
+        dataSets.append(set)
         
-        barChartView.data = BarChartData(dataSets: set)
-        view.addSubview(barChartView)
+        lineChartView.data = LineChartData(dataSets: dataSets)
+        view.addSubview(lineChartView)
         
         
     }
