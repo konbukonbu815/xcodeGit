@@ -1,0 +1,6 @@
+framework module Pods_wave2 {
+  umbrella header "Pods-wave2-umbrella.h"
+
+  export *
+  module * { export * }
+}
