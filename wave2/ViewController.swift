@@ -16,13 +16,19 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
+        
+        let audioClass = AudioDataClass(address: "/Users/wakasakenta/Desktop/C001NaC4f1.wav")
+        //読み込み
+        audioClass.loadAudioData()
+        
         // 標本化数
-        let numSamples = 1024
+        let numSamples = 44100
         // サンプルデータ
-        var samples = [Float](repeating: 0, count: 1024)
+        var samples = [Float](repeating: 0, count: 44100)
         
         for n in 0..<numSamples {
-            samples[n] = (0.25 * sinf(Float(M_PI) * Float(n) / 8.0)) + (0.25 * sinf(Float(M_PI) * Float(n) / 16.0))
+            samples[n] = audioClass.buffer[0][n]
         }
         
         var reals = [Float](repeating: 0, count: numSamples/2)
@@ -50,16 +56,15 @@ class ViewController: UIViewController {
         let r = Array(UnsafeBufferPointer(start: splitComplex.realp, count: numSamples/2))
         let i = Array(UnsafeBufferPointer(start: splitComplex.imagp, count: numSamples/2))
 
-        var mag = [Int]() //周波数の強度を格納
+        var mag = [Double]() //周波数の強度を格納
         var xAxis = [Double]() //x軸の対応関係
         
         for n in 0..<fftLevel/2 {
             let rel = r[n]
             let img = i[n]
             let magSub = sqrtf(rel * rel + img * img)
-            
-            mag.append(Int(magSub))                                //配列に格納
-            xAxis.append(Double(numSamples) / 64 * Double(n))
+            mag.append(Double(magSub))                                //配列に格納
+            xAxis.append(Double(numSamples) / Double(fftLevel) * Double(n))
             
             let log = "[%02d]: Mag: %5.2f, Rel: %5.2f, Img: %5.2f"
             print(String(format: log, n, magSub, rel, img))
@@ -69,8 +74,8 @@ class ViewController: UIViewController {
         
         var rect = view.bounds
         //表示位置
-        rect.origin.y += 50
-        rect.size.height -= 200
+        rect.origin.y += 100
+        rect.size.height -= 100
         let barChartView = BarChartView(frame: rect) //棒グラフの宣言
         
         //xとyの値の格納

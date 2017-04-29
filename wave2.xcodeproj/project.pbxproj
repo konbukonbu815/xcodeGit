@@ -10,6 +10,9 @@
 		12C1D8170E5084EAF5B1DBB0 /* Pods_wave2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A29F34E576BEED2E55CFAE4 /* Pods_wave2UITests.framework */; };
 		295BC09C94720AC8F56C4433 /* Pods_wave2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8F1014EC377A9E68B1B085E /* Pods_wave2.framework */; };
 		5DD3DA2CF1222264DB29283A /* Pods_wave2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 647E660F7B8F248006F95AC2 /* Pods_wave2Tests.framework */; };
+		D22750DC1EB49CF60083B3BA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22750DB1EB49CF60083B3BA /* AVFoundation.framework */; };
+		D22750E51EB4A2D20083B3BA /* AudioDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22750E41EB4A2D20083B3BA /* AudioDataClass.swift */; };
+		D22750E71EB4A67D0083B3BA /* C001NaC4f1.wav in Resources */ = {isa = PBXBuildFile; fileRef = D22750E61EB4A67D0083B3BA /* C001NaC4f1.wav */; };
 		D26B61261EACA8460077D5F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26B61251EACA8460077D5F9 /* AppDelegate.swift */; };
 		D26B61281EACA8460077D5F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26B61271EACA8460077D5F9 /* ViewController.swift */; };
 		D26B612B1EACA8460077D5F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D26B61291EACA8460077D5F9 /* Main.storyboard */; };
@@ -44,6 +47,9 @@
 		6F8B98E2048E383A9F4D5083 /* Pods-wave2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wave2Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-wave2Tests/Pods-wave2Tests.release.xcconfig"; sourceTree = "<group>"; };
 		70038770E52F88B3FF40C140 /* Pods-wave2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wave2UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wave2UITests/Pods-wave2UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AF003CD4989A4CBD4B5360CD /* Pods-wave2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wave2UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-wave2UITests/Pods-wave2UITests.release.xcconfig"; sourceTree = "<group>"; };
+		D22750DB1EB49CF60083B3BA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D22750E41EB4A2D20083B3BA /* AudioDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioDataClass.swift; sourceTree = "<group>"; };
+		D22750E61EB4A67D0083B3BA /* C001NaC4f1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = C001NaC4f1.wav; path = ../../../../Desktop/C001NaC4f1.wav; sourceTree = "<group>"; };
 		D26B61221EACA8460077D5F9 /* wave2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wave2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D26B61251EACA8460077D5F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D26B61271EACA8460077D5F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D22750DC1EB49CF60083B3BA /* AVFoundation.framework in Frameworks */,
 				D26B61551EACA8850077D5F9 /* Accelerate.framework in Frameworks */,
 				295BC09C94720AC8F56C4433 /* Pods_wave2.framework in Frameworks */,
 			);
@@ -122,6 +129,8 @@
 				D26B61291EACA8460077D5F9 /* Main.storyboard */,
 				D26B612C1EACA8460077D5F9 /* Assets.xcassets */,
 				D26B612E1EACA8460077D5F9 /* LaunchScreen.storyboard */,
+				D22750E41EB4A2D20083B3BA /* AudioDataClass.swift */,
+				D22750E61EB4A67D0083B3BA /* C001NaC4f1.wav */,
 				D26B61311EACA8460077D5F9 /* Info.plist */,
 			);
 			path = wave2;
@@ -148,6 +157,7 @@
 		D26B61531EACA8850077D5F9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D22750DB1EB49CF60083B3BA /* AVFoundation.framework */,
 				D26B61541EACA8850077D5F9 /* Accelerate.framework */,
 				E8F1014EC377A9E68B1B085E /* Pods_wave2.framework */,
 				647E660F7B8F248006F95AC2 /* Pods_wave2Tests.framework */,
@@ -288,6 +298,7 @@
 				D26B61301EACA8460077D5F9 /* LaunchScreen.storyboard in Resources */,
 				D26B612D1EACA8460077D5F9 /* Assets.xcassets in Resources */,
 				D26B612B1EACA8460077D5F9 /* Main.storyboard in Resources */,
+				D22750E71EB4A67D0083B3BA /* C001NaC4f1.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D26B61281EACA8460077D5F9 /* ViewController.swift in Sources */,
+				D22750E51EB4A2D20083B3BA /* AudioDataClass.swift in Sources */,
 				D26B61261EACA8460077D5F9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -700,6 +712,7 @@
 				D26B614C1EACA8460077D5F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D26B614D1EACA8460077D5F9 /* Build configuration list for PBXNativeTarget "wave2Tests" */ = {
 			isa = XCConfigurationList;
@@ -708,6 +721,7 @@
 				D26B614F1EACA8460077D5F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D26B61501EACA8460077D5F9 /* Build configuration list for PBXNativeTarget "wave2UITests" */ = {
 			isa = XCConfigurationList;
@@ -716,6 +730,7 @@
 				D26B61521EACA8460077D5F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
