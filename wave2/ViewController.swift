@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         var samples = [Float](repeating: 0, count: 1024)
         
         for n in 0..<numSamples {
-            samples[n] = 0.25 * sinf(Float(M_PI) * Float(n) / 8.0)
+            samples[n] = (0.25 * sinf(Float(M_PI) * Float(n) / 8.0)) + (0.25 * sinf(Float(M_PI) * Float(n) / 16.0))
         }
         
         var reals = [Float](repeating: 0, count: numSamples/2)
@@ -33,7 +33,10 @@ class ViewController: UIViewController {
         
         //  Create FFT setup
         // __Log2nは log2(64) = 6 より、6 を指定
-        let log2fftLevel = vDSP_Length(log2(Double(64))) //fftのポイント数を指定
+        
+        
+        let fftLevel = 64 //fftのポイント数を指定
+        let log2fftLevel = vDSP_Length(log2(Double(fftLevel))) //fftのポイント数をlog2に変換
         
         let setup = vDSP_create_fftsetup(log2fftLevel, FFTRadix(FFT_RADIX2))
         // Perform FFT
@@ -50,7 +53,7 @@ class ViewController: UIViewController {
         var mag = [Int]() //周波数の強度を格納
         var xAxis = [Double]() //x軸の対応関係
         
-        for n in 0..<64/2 {
+        for n in 0..<fftLevel/2 {
             let rel = r[n]
             let img = i[n]
             let magSub = sqrtf(rel * rel + img * img)
@@ -72,8 +75,8 @@ class ViewController: UIViewController {
         
         //xとyの値の格納
         var entry = [BarChartDataEntry]()
-        for index in 0..<64/2 {
-            entry.append(BarChartDataEntry(x: Double(index), y: Double(samples[index])))
+        for index in 0..<fftLevel/2 {
+            entry.append(BarChartDataEntry(x: Double(xAxis[index]), y: Double(mag[index])))
         }
         
         //datasetとして書き出す
